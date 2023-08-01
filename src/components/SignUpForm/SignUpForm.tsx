@@ -2,14 +2,26 @@
 import React, { useState } from 'react'
 import styles from './SignUpForm.module.scss'
 import { Input } from '../UI/input/Input'
+import * as Api from '../../../api'
+import { setCookie } from 'nookies'
 
 export const SignUpForm = () => {
-  const [signUpForm, setSignUpForm] = useState({ email: '', password: '' })
+  const emptyForm = { email: '', password: '', firstname: '' }
+  const [signUpForm, setSignUpForm] = useState(emptyForm)
   const [repeat, setRepeat] = useState('')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    alert(signUpForm.email + ' ' + signUpForm.password)
+    try {
+      const { token } = await Api.auth.register(signUpForm)
+      setSignUpForm(emptyForm)
+      setRepeat('')
+      setCookie(null, '_token', token, { path: '/' })
+      alert('Authorized successfully!')
+    } catch (e) {
+      console.log('SignUpForm', e)
+      alert('Error!')
+    }
   }
   const handleChange = (field: string, value: string) => {
     setSignUpForm({ ...signUpForm, [field]: value })
@@ -19,6 +31,11 @@ export const SignUpForm = () => {
     <div className={styles.wrapper}>
       <form action="" onSubmit={e => handleSubmit(e)} className={styles.form}>
         <div className={styles.fields}>
+          <Input
+            value={signUpForm.firstname}
+            onChange={value => handleChange('firstname', value)}
+            placeholder="Firstname"
+          />
           <Input
             value={signUpForm.email}
             onChange={value => handleChange('email', value)}

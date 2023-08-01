@@ -2,15 +2,25 @@
 import React, { useState } from 'react'
 import styles from './LoginForm.module.scss'
 import { Input } from '../UI/input/Input'
+import { LoginFormDto } from '../../../api/dto/auth.dto'
+import * as Api from '../../../api'
+import { setCookie } from 'nookies'
 
 export const LoginForm = () => {
   const emptyForm = { email: '', password: '' }
-  const [loginForm, setLoginForm] = useState(emptyForm)
+  const [loginForm, setLoginForm] = useState<LoginFormDto>(emptyForm)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setLoginForm(emptyForm)
-    alert(loginForm.email + '' + loginForm.password)
+    try {
+      const { token } = await Api.auth.login(loginForm)
+      setLoginForm(emptyForm)
+      setCookie(null, '_token', token, { path: '/' })
+      alert('Authorized successfully!')
+    } catch (e) {
+      console.log('LoginForm', e)
+      alert('Error!')
+    }
   }
 
   const handleChange = (field: string, value: string) => {

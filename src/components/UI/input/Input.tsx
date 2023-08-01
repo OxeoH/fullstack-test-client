@@ -24,7 +24,9 @@ export const Input = ({
         value={value}
         onChange={e => onChange(e.target.value)}
         placeholder={placeholder ?? ''}
-        style={{ border: wrong ? '2px inset #7b1111' : 'none' }}
+        style={{
+          boxShadow: wrong ? 'inset 2px 2px #7b1111, inset -2px -2px  #7b1111' : 'none',
+        }}
       />
       {type === 'password' && (
         <div onClick={() => setView(!view)} className={styles.view}>
