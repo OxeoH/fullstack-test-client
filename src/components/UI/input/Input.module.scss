@@ -1,0 +1,12 @@
+.password {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.view {
+  position: absolute;
+  top: 30%;
+  right: 3%;
+}
