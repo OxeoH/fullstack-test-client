@@ -1,18 +1,15 @@
 import { AuthForm } from '@/components/AuthForm/AuthForm'
 import styles from './page.module.css'
 import Head from 'next/head'
+import { Header } from '@/components/Header/Header'
+import { Body } from '@/components/Body/Body'
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Fullstack Test</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Cleaning service created as test task" />
-      </Head>
-      <main className={styles.main}>
-        <AuthForm />
-      </main>
-    </>
+    <main className={styles.main}>
+      {/* <AuthForm /> */}
+      <Header />
+      <Body />
+    </main>
   )
 }

@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=PT+Mono&display=swap');
+
 $orange: #ed9932;
 $primaryGray: #9e9e9e;
+$backgroundGray: #dfe0df;
 $secondaryText: #ffffff80;
 $primaryText: #ffffff80;
+$primaryBlackText: #1d1d1d;
 $error: #7b1111;
 $borderGray: #acacac;
 $white: #f3f3f3;
@@ -9,6 +13,23 @@ $popupAnchor: rgba(
   $color: #000000,
   $alpha: 0.2,
 );
+
+@mixin HeeboSmall() {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+}
+@mixin HeeboMedium() {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+}
+@mixin HeeboBold() {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 700;
+}
+
+@mixin PTMonoSmall() {
+  font-family: 'PT Mono', monospace;
+}
 
 @mixin orangeButton() {
   @include button();
