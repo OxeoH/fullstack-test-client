@@ -1,9 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './LoginForm.module.scss'
-import { Input } from '../UI/input/Input'
-import { LoginFormDto } from '../../../api/dto/auth.dto'
-import * as Api from '../../../api'
+import { Input } from '../../UI/input/Input'
+import { LoginFormDto } from '../../../../api/dto/auth.dto'
+import * as Api from '../../../../api'
 import { setCookie } from 'nookies'
 
 export const LoginForm = () => {

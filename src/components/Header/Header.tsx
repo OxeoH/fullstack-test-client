@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Header.module.scss'
 import Image from 'next/image'
 import img from '../../../public/assets/images/Felics_Full.jpg'
+import { getServerSideProps } from '@/app/page'
 
 export const Header = () => {
   return (

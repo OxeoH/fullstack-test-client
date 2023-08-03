@@ -5,8 +5,8 @@ import CloseIcon from '../../../public/assets/icons/closeIcon.svg'
 import FacebookIcon from '../../../public/assets/icons/Facebook.svg'
 import GoogleIcon from '../../../public/assets/icons/Google.svg'
 import BackIcon from '../../../public/assets/icons/left-arrow-4-svgrepo-com.svg'
-import { SignUpForm } from '../SignUpForm/SignUpForm'
-import { LoginForm } from '../LoginForm/LoginForm'
+import { SignUpForm } from './SignUpForm/SignUpForm'
+import { LoginForm } from './LoginForm/LoginForm'
 
 export const AuthForm: React.FC = () => {
   const [form, setForm] = useState<'Sign Up' | 'Log In' | 'menu'>('menu')

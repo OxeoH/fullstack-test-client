@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './SignUpForm.module.scss'
-import { Input } from '../UI/input/Input'
-import * as Api from '../../../api'
+import { Input } from '../../UI/input/Input'
+import * as Api from '../../../../api'
 import { setCookie } from 'nookies'
 
 export const SignUpForm = () => {

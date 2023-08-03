@@ -16,3 +16,9 @@ export interface RegisterFormDto {
 export interface RegisterResponseDto {
   token: string
 }
+
+export interface IClient {
+  id: string
+  firstname: string
+  email: string
+}
