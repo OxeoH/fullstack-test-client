@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <OrderProvider>
       <main className={styles.main}>
-        {/* <AuthForm /> */}
+        <AuthForm />
         <Header />
         <Body />
       </main>

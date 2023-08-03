@@ -1,20 +1,4 @@
-@import '../../styles/variables.scss';
-.filters {
-  display: flex;
-  width: 95%;
-  flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
-}
-
-.input {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  width: 50%;
-  background-color: aqua;
-}
+@import '../../../styles/variables.scss';
 
 .filter {
   width: 100%;
@@ -41,14 +25,34 @@
     text-transform: capitalize;
   }
 }
-
-.search {
-  button {
-    @include orangeButton();
-  }
+.options {
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
+}
+@mixin option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-right: 1rem;
+}
+
+.default {
+  @include option();
+  button {
+    @include button();
+    width: 100%;
+    padding-inline: 2rem;
+  }
+}
+
+.selected {
+  @include option();
+  button {
+    @include orangeButton();
+    box-shadow: none;
+    padding-inline: 2rem;
+  }
 }

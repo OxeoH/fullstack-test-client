@@ -43,6 +43,7 @@ $popupAnchor: rgba(
 
 @mixin button() {
   transition: 0.2s ease 0s;
+  @include PTMonoSmall();
   text-transform: uppercase;
   box-shadow: -3px 3px 0px 0px #ed9932;
   color: $white;
@@ -61,6 +62,7 @@ $popupAnchor: rgba(
 }
 
 @mixin input() {
+  width: 100%;
   padding: 30px 50px 30px 20px;
   background-color: $primaryGray;
   color: $white;
