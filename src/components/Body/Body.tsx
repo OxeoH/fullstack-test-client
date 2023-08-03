@@ -5,6 +5,7 @@ import { Advantages } from '../Advantages/Advantages'
 import { Cleanings } from '../Cleanings/Cleanings'
 import { Preparings } from '../Preparings/Preparings'
 import { Filter } from '../FIlter/Filter'
+import { Schedule } from '../Schedule/Schedule'
 
 export const Body = () => {
   return (
@@ -17,7 +18,7 @@ export const Body = () => {
       <Paragraph name="Filter" />
       <Filter />
       <Paragraph name="Schedule" />
-      <></>
+      <Schedule />
       <Paragraph name="Reviews" />
     </div>
   )

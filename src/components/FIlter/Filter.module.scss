@@ -1,10 +1,11 @@
 @import '../../styles/variables.scss';
 .filters {
   display: flex;
-  width: 95%;
+  width: 90%;
   flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .input {
@@ -13,7 +14,6 @@
   justify-content: left;
   align-items: center;
   width: 50%;
-  background-color: aqua;
 }
 
 .filter {
