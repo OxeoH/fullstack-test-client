@@ -6,6 +6,8 @@ import { Cleanings } from '../Cleanings/Cleanings'
 import { Preparings } from '../Preparings/Preparings'
 import { Filter } from '../FIlter/Filter'
 import { Schedule } from '../Schedule/Schedule'
+import { Reviews } from '../Reviews/Reviews'
+import { Footer } from '../Footer/Footer'
 
 export const Body = () => {
   return (
@@ -20,6 +22,8 @@ export const Body = () => {
       <Paragraph name="Schedule" />
       <Schedule />
       <Paragraph name="Reviews" />
+      <Reviews />
+      <Footer />
     </div>
   )
 }

@@ -25,7 +25,7 @@ export const Schedule = () => {
             <DayItem key={index} day={value} />
           ))}
           <div className={styles.search}>
-            <input type="submit" value="search" />{' '}
+            <input type="submit" value="search" />
           </div>
         </form>
       </div>
