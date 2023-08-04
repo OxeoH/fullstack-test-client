@@ -5,16 +5,32 @@ interface IOrder {
   allergy: string
   cleaning: string
   address: string
-  schedule: string
+  schedule: {
+    monday: string[]
+    tuesday: string[]
+    wednesday: string[]
+    thursday: string[]
+    friday: string[]
+    saturday: string[]
+    sunday: string[]
+  }
 }
-const order = {
+const order: IOrder = {
   frequency: '',
   allergy: '',
   cleaning: '',
   address: '',
-  schedule: '',
+  schedule: {
+    monday: [],
+    tuesday: [],
+    wednesday: [],
+    thursday: [],
+    friday: [],
+    saturday: [],
+    sunday: [],
+  },
 }
-export const OrderContext = createContext({})
+export const OrderContext = createContext<any>(undefined)
 
 export const OrderProvider = ({ children }: { children: ReactNode }) => {
   return <OrderContext.Provider value={useState(order)}>{children}</OrderContext.Provider>

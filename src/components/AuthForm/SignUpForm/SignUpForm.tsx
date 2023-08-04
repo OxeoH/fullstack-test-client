@@ -1,14 +1,17 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './SignUpForm.module.scss'
 import { Input } from '../../UI/input/Input'
 import * as Api from '../../../../api'
 import { setCookie } from 'nookies'
+import { isEmailValid } from '@/utils/isEmailValid'
+import { AuthContext } from '@/context/AuthProvider'
 
 export const SignUpForm = () => {
   const emptyForm = { email: '', password: '', firstname: '' }
   const [signUpForm, setSignUpForm] = useState(emptyForm)
   const [repeat, setRepeat] = useState('')
+  const setContext = useContext(AuthContext)![1]
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -17,7 +20,8 @@ export const SignUpForm = () => {
       setSignUpForm(emptyForm)
       setRepeat('')
       setCookie(null, '_token', token, { path: '/' })
-      alert('Authorized successfully!')
+      alert('Account was created successfully!')
+      setContext(false)
     } catch (e) {
       console.log('SignUpForm', e)
       alert('Error!')
@@ -40,6 +44,7 @@ export const SignUpForm = () => {
             value={signUpForm.email}
             onChange={value => handleChange('email', value)}
             placeholder="Email"
+            wrong={!isEmailValid(signUpForm.email) && signUpForm.email.length > 0}
           />
           <Input
             type="password"
@@ -60,7 +65,16 @@ export const SignUpForm = () => {
             }
           />
         </div>
-        <input type="submit" title="Send" value="Send" className={styles.submit} />
+        <input
+          type="submit"
+          title="Send"
+          value="Send"
+          className={styles.submit}
+          disabled={
+            !isEmailValid(signUpForm.email) ||
+            (repeat !== signUpForm.password && signUpForm.password.length > 0 && repeat.length > 0)
+          }
+        />
       </form>
     </div>
   )

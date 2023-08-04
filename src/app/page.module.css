@@ -5,6 +5,15 @@
   align-items: center;
   min-height: 100vh;
 }
+.authForm {
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
 
 /* .description {
   display: inherit;

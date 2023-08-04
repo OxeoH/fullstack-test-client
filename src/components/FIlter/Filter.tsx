@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Filter.module.scss'
 import { InfoBlock } from '../InfoBlock/InfoBlock'
 import { FilterItem } from './FilterItem/FilterItem'
 import { Input } from '../UI/input/Input'
+import { OrderContext } from '@/context/OrderProvider'
 
 const filters = [
   { title: 'frequency', values: ['one-time cleaning', 'twice a week', 'every week'] },
@@ -14,6 +15,12 @@ const filters = [
 ]
 
 export const Filter = () => {
+  const context = useContext(OrderContext)![0]
+  const setContext = useContext(OrderContext)![1]
+
+  const handleChange = (value: string) => {
+    setContext((prev: any) => (prev = { ...prev, address: value }))
+  }
   return (
     <InfoBlock>
       <div className={styles.filters}>
@@ -28,8 +35,8 @@ export const Filter = () => {
           <div className={styles.input}>
             <Input
               type="text"
-              value={''}
-              onChange={() => {}}
+              value={context.address}
+              onChange={value => handleChange(value)}
               placeholder="Address"
               isLight={true}
               style={{ padding: '1rem 3rem 1rem 1rem' }}

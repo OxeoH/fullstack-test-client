@@ -10,12 +10,8 @@ export const checkIsAuth = async (ctx: GetServerSidePropsContext) => {
 
   try {
     await Api.auth.getMe()
-    return {
-      props: {},
-    }
+    return true
   } catch (_) {
-    return {
-      openAuth: true,
-    }
+    return false
   }
 }

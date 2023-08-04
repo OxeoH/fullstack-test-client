@@ -3,27 +3,27 @@ import { AuthForm } from '@/components/AuthForm/AuthForm'
 import styles from './page.module.css'
 import { Header } from '@/components/Header/Header'
 import { Body } from '@/components/Body/Body'
-import { GetServerSidePropsContext } from 'next'
-import { useState } from 'react'
-import { checkIsAuth } from '@/utils/checkIsAuth'
 import { OrderProvider } from '@/context/OrderProvider'
+import { AuthContext, AuthProvider } from '@/context/AuthProvider'
+import { useContext } from 'react'
 
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const authProps = await checkIsAuth(ctx)
+// export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+//   const authProps = await checkIsAuth(ctx)
 
-  if ('openAuth' in authProps) {
-    return authProps.openAuth
-  }
-}
+//   if ('openAuth' in authProps) {
+//     return authProps.openAuth
+//   }
+// }
 
 export default function Home() {
   return (
-    <OrderProvider>
-      <main className={styles.main}>
-        <AuthForm />
-        <Header />
-        <Body />
-      </main>
-    </OrderProvider>
+    <AuthProvider>
+      <OrderProvider>
+        <main className={styles.main}>
+          <Header />
+          <Body />
+        </main>
+      </OrderProvider>
+    </AuthProvider>
   )
 }

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './AuthForm.module.scss'
 import CloseIcon from '../../../public/assets/icons/closeIcon.svg'
 import FacebookIcon from '../../../public/assets/icons/Facebook.svg'
@@ -7,9 +7,12 @@ import GoogleIcon from '../../../public/assets/icons/Google.svg'
 import BackIcon from '../../../public/assets/icons/left-arrow-4-svgrepo-com.svg'
 import { SignUpForm } from './SignUpForm/SignUpForm'
 import { LoginForm } from './LoginForm/LoginForm'
+import { AuthContext } from '@/context/AuthProvider'
 
 export const AuthForm: React.FC = () => {
   const [form, setForm] = useState<'Sign Up' | 'Log In' | 'menu'>('menu')
+
+  const setContext = useContext(AuthContext)![1]
   return (
     <div className={styles.anchor}>
       <div className={styles.window}>
@@ -17,14 +20,13 @@ export const AuthForm: React.FC = () => {
           <div
             className={styles.bar}
             style={{ justifyContent: form !== 'menu' ? 'space-between' : 'right' }}
-            onClick={() => setForm('menu')}
           >
             {form !== 'menu' && (
-              <button className={styles.back}>
+              <button className={styles.back} onClick={() => setForm('menu')}>
                 <BackIcon />
               </button>
             )}
-            <button className={styles.close}>
+            <button className={styles.close} onClick={() => setContext(false)}>
               <CloseIcon />
             </button>
           </div>

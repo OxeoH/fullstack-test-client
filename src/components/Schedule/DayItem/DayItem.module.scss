@@ -48,7 +48,7 @@
 
 .default {
   @include time();
-  button {
+  input {
     @include button();
     width: 100%;
     padding-inline: 2rem;
@@ -57,7 +57,7 @@
 
 .selected {
   @include time();
-  button {
+  input {
     @include orangeButton();
     box-shadow: none;
     padding-inline: 2rem;
