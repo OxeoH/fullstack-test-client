@@ -56,13 +56,13 @@ export const Cleanings = () => {
             </div>
           </div>
         ))}
-        <div style={{ position: 'absolute', top: '-13%', left: '-12%' }}>
+        <div style={{ position: 'absolute', top: '-10%', left: '-17%' }}>
           <Image src={apartment} alt="apartment" />
         </div>
-        <div style={{ position: 'absolute', top: '27%', right: '-12%' }}>
+        <div style={{ position: 'absolute', top: '27%', right: '-17%' }}>
           <Image src={kitchen} alt="kitchen" />
         </div>
-        <div style={{ position: 'absolute', top: '68%', left: '-12%' }}>
+        <div style={{ position: 'absolute', top: '68%', left: '-17%' }}>
           <Image src={office} alt="office" />
         </div>
       </div>
