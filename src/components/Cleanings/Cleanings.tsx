@@ -13,7 +13,6 @@ const cleaningsList = [
       Involves thoroughly cleaning all areas of the apartment to create a hygienic and visually appealing environment.
       This typically includes tasks such as dusting surfaces, vacuuming or sweeping the floor, cleaning the kitchen and bathroom, and doing laundry. 
       The goal is to remove dirt, grime, and debris from all areas of the apartment to create a clean and tidy living space.`,
-    imgSrc: apartment,
   },
   {
     title: 'Office cleaning',
@@ -23,7 +22,6 @@ const cleaningsList = [
     The goal is to create a hygienic and visually appealing work environment for employees and visitors, and to maintain the overall cleanliness of the office. 
     Regular office cleaning helps to prevent the spread of germs and bacteria, which can improve the health and well-being of those who use the space. 
     It can also help to create a professional and organized image for the office and its employees.`,
-    imgSrc: office,
   },
 
   {
@@ -32,7 +30,6 @@ const cleaningsList = [
       Includes wiping countertops, cabinets and household appliances to remove dirt, cleaning the sink, including the faucet, handles and drain hole, cleaning the stove, oven and microwave. 
       Washing the refrigerator and freezer, including internal and external surfaces and handles. Sweeping and mopping floors.
       Garbage removal and replacement of garbage bags.`,
-    imgSrc: kitchen,
   },
 ]
 
@@ -57,11 +54,17 @@ export const Cleanings = () => {
 
               <span className={styles.line} />
             </div>
-            <div className={styles.picture}>
-              <Image src={option.imgSrc} alt="Picture" fill />
-            </div>
           </div>
         ))}
+        <div style={{ position: 'absolute', top: '-13%', left: '-12%' }}>
+          <Image src={apartment} alt="apartment" />
+        </div>
+        <div style={{ position: 'absolute', top: '27%', right: '-12%' }}>
+          <Image src={kitchen} alt="kitchen" />
+        </div>
+        <div style={{ position: 'absolute', top: '68%', left: '-12%' }}>
+          <Image src={office} alt="office" />
+        </div>
       </div>
     </InfoBlock>
   )
